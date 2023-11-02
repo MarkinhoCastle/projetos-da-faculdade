@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jost:wght@200;400;600&display=swap');
+
+@mixin flex {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-child {
+  flex: 1 0 auto;
+}
+
+:root {
+  --green: #166639;
+  --interaction: #147373;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: darkblue;
+  font-family: 'Century Gothic', sans-serif;
+  font-size: 80%;
+}
+
+img {
+  max-width: 50%;
+  width: auto;
+  height: auto;
+}
+
+h1, .h1{
+  font-size: 3rem;
+  font-weight: 400;
+  font-weight:bold;
+}
+
+h2, .h2{
+  font-size: 2.25rem;
+}
+
+a{
+  color:black;
+}
+
+a:focus{
+  outline: 1px solid;
+  outline-offset: 1px;
+  color:yellow;
+}
+
+.site-header{
+  margin-bottom: 1.5rem;
+  border-bottom: 8px solid var(--green);
+}
+
+.site-logo{
+  color: var(--green);
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-decoration: none;  
+
+  &:hover, &:focus{
+    background-color: var(--interaction);
+    border-color: transparent;
+    color: #fff !important;
+    outline: none;
+  }
+}
+
+.site-nav{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.site-nav ul{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  list-style: none;
+}
+
+.site-nav ul > li{
+  margin-right: 8px;
+  margin-top: 12px;
+
+  &:first-child{
+    margin-top: 0;
+  }
+
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
+.site-nav ul > li > a{
+  border: 2px solid transparent;
+  color: var(--green);
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+}
+
+.site-nav ul > li > a:hover, .site-nav ul > li > a:focus{
+  border-color: var(--interaction);
+  color: var(--interaction);
+  outline: none;
+}
+
+.global-announcement{
+  background-color: var(--green);
+  color: #fff;
+  font-weight: 600;
+  padding: .5rem;
+  text-align: center;
+}
+
+.global-announcement a{
+  color: #fff;
+}
+
+.site-footer{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(10px, 1fr));
+  justify-items: center;
+  background-color: var(--green);
+  color: #fff;
+  padding: 2rem 5rem;
+}
+
+.footer-legal{
+  text-align: center;
+  grid-column: 1 / -1;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.footer-links{
+  ul{
+    list-style: none;
+  }
+
+  ul li{
+    margin-bottom: 4px;
+    font-weight:400;
+    color:black;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  a{
+    color: #fff;
+    text-decoration: none;
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
+
+.footer-logo{
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.footer-logo > svg{
+  margin-right: 8px;
+  max-width: 75px;
+}
+
+.footer-logo span{
+  font-family: 'Tangerine', cursive;
+  font-size: 4rem;
+}
+
+.footer-legal ul{
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.footer-legal ul li{
+  display: inline-block;
+}
+
+.footer-legal ul li a{
+  color: #fff;
+  display: inline-block;
+  font-size: .88rem;
+  font-weight: 600;
+  padding: 4px;
+  text-decoration: none;
+}
+
+.footer-legal ul li a:hover, .breadcrumbs ul li a:focus{
+  text-decoration: underline;
+}
+
+.footer-legal ul li ~ li::before {
+  content: '|';
+}
+
+.page-main{
+  display: grid;
+  grid-template-columns: minmax(10px, .5fr) minmax(10px, 2.5fr);
+  margin-bottom: 3rem;
+  padding: 0 4rem;
+}
+
+.page-main h1{
+  grid-column: 1/-1;
+  color: var(--green);
+  margin-bottom: 1.5rem;
+}
+
+.products{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 4fr));
+  grid-gap: 2rem;
+  row-gap: 1.5rem;
+  list-style: none;
+}
+
+.product-filter fieldset{
+  border: none;
+  margin-bottom: 1rem;
+
+  legend{
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: .25rem;
+  }
+
+  > ul{
+    list-style: none;
+  }
+
+  input{
+    margin-right: 8px;
+  }
+}
+
+.card {
+  @include flex;
+  border: 1px solid #000;
+  border-radius: 4px;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0px 0px 4px 1px var(--interaction);
+  }
+
+  a:focus{
+    text-decoration: underline;
+  }
+
+  &:focus-within{
+    box-shadow: 0px 0px 4px 1px var(--interaction);
+
+    a{
+      text-deocration: none;
+
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+}
+
+.card__text {
+  @include flex;
+  @include flex-child;
+  padding: 0.5rem 1rem;
+  order: 1;
+
+  * {
+    margin-bottom: 0;
+  }
+
+  :last-child {
+    margin-top: auto;
+  }
+
+  .card__title a{
+    color: #333;
+    font-weight: 200;
+    text-decoration: none;
+  }
+
+  > * + * {
+    margin-top: 0.5rem;
+  }
+}
+
+.product-price{
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.product-compare{
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 8px;
+  border: 1px solid #333;
+  transition: opacity .2s ease-in-out;
+  opacity: 0;
+}
+
+.card:hover .product-compare{
+  opacity: 1;
+}
+
+.product-compare:focus-within{
+  opacity: 1;
+}
+
+.product-compare label{
+  font-size: .9rem;
+  margin-right: 8px;
+}
+
+.product-compare input{
+  margin: 0 !important;
+}
